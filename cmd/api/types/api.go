@@ -4,9 +4,7 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/labstack/echo/v4"
-
-	dbT "github.com/talgat-ruby/interactive-comments-api/cmd/db/types"
+	dbT "github.com/talgat-ruby/planets-fact-site-graphql/cmd/db/types"
 )
 
 type Api interface {
@@ -14,6 +12,4 @@ type Api interface {
 	GetLog() *slog.Logger
 }
 
-type Middleware interface {
-	Logger(ctx context.Context, app *echo.Echo)
-}
+type Middleware interface{}

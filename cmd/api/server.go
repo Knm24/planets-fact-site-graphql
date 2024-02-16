@@ -13,11 +13,11 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/talgat-ruby/interactive-comments-api/cmd/api/router"
-	apiT "github.com/talgat-ruby/interactive-comments-api/cmd/api/types"
-	dbT "github.com/talgat-ruby/interactive-comments-api/cmd/db/types"
-	"github.com/talgat-ruby/interactive-comments-api/configs"
-	"github.com/talgat-ruby/interactive-comments-api/internal/validator"
+	"github.com/talgat-ruby/planets-fact-site-graphql/cmd/api/router"
+	apiT "github.com/talgat-ruby/planets-fact-site-graphql/cmd/api/types"
+	dbT "github.com/talgat-ruby/planets-fact-site-graphql/cmd/db/types"
+	"github.com/talgat-ruby/planets-fact-site-graphql/configs"
+	"github.com/talgat-ruby/planets-fact-site-graphql/internal/validator"
 )
 
 type server struct {
@@ -56,13 +56,19 @@ func (s *server) Start(ctx context.Context, cancel context.CancelFunc, db dbT.DB
 	// Listen from s different goroutine
 	go func() {
 		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
-			s.log.ErrorContext(ctx, "server error", "error", err)
+			s.log.LogAttrs(
+				ctx, slog.LevelError, "server error",
+				slog.Any("error", err),
+			)
 		}
 
 		cancel()
 	}()
 
-	s.log.InfoContext(ctx, "start server", "PORT", s.conf.Port)
+	s.log.LogAttrs(
+		ctx, slog.LevelInfo, "start server",
+		slog.Int("PORT", s.conf.Port),
+	)
 
 	shutdown := make(chan os.Signal, 1)                    // Create channel to signify s signal being sent
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM) //  When an interrupt or termination signal is sent, notify the channel
@@ -70,9 +76,12 @@ func (s *server) Start(ctx context.Context, cancel context.CancelFunc, db dbT.DB
 	go func() {
 		_ = <-shutdown
 
-		s.log.WarnContext(ctx, "gracefully shutting down...")
+		s.log.LogAttrs(ctx, slog.LevelWarn, "gracefully shutting down...")
 		if err := srv.Shutdown(ctx); err != nil {
-			s.log.ErrorContext(ctx, "server shutdown error", "error", err)
+			s.log.LogAttrs(
+				ctx, slog.LevelError, "server shutdown error",
+				slog.Any("error", err),
+			)
 		}
 	}()
 }

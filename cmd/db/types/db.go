@@ -3,7 +3,7 @@ package types
 import (
 	"context"
 
-	"github.com/talgat-ruby/interactive-comments-api/cmd/db/model"
+	"github.com/talgat-ruby/planets-fact-site-graphql/cmd/db/model"
 )
 
 type DB interface {

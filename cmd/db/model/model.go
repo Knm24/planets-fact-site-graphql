@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"log/slog"
 
-	"github.com/talgat-ruby/interactive-comments-api/cmd/db/database"
-	"github.com/talgat-ruby/interactive-comments-api/configs"
+	"github.com/talgat-ruby/planets-fact-site-graphql/cmd/db/database"
+	"github.com/talgat-ruby/planets-fact-site-graphql/configs"
 )
 
 type Model struct {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 
-	"github.com/talgat-ruby/interactive-comments-api/internal/constant"
+	"github.com/talgat-ruby/planets-fact-site-graphql/internal/constant"
 )
 
 type Config struct {
