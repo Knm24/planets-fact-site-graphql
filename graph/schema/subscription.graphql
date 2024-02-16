@@ -1,3 +1,0 @@
-type Subscription {
-  ping: String # this is so that we can define base type without compiler complaining
-}

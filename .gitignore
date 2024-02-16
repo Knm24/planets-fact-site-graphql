@@ -22,3 +22,7 @@ go.work
 
 # env
 .env.local
+
+# db files
+planet
+company

@@ -1,0 +1,16 @@
+SET check_function_bodies = false;
+INSERT INTO public.companies (id, name, type, founded_year, ceo, created_at, updated_at) VALUES (1, 'Google', 'Internet', 1998, 'Sundar Pichai', '2024-02-16 21:16:00.085667+00', '2024-02-16 21:16:15.023758+00');
+INSERT INTO public.companies (id, name, type, founded_year, ceo, created_at, updated_at) VALUES (2, 'Tesla', 'Automotive', 2003, 'Elon Musk', '2024-02-16 21:17:04.286693+00', '2024-02-16 21:17:04.286693+00');
+INSERT INTO public.companies (id, name, type, founded_year, ceo, created_at, updated_at) VALUES (3, 'Apple', 'Consumer electronics', 1976, 'Tim Cook', '2024-02-16 21:17:34.902547+00', '2024-02-16 21:17:34.902547+00');
+INSERT INTO public.companies (id, name, type, founded_year, ceo, created_at, updated_at) VALUES (4, 'Amazon', 'Conglomerate', 1994, 'Andy Jassy', '2024-02-16 21:18:04.011833+00', '2024-02-16 21:18:04.011833+00');
+INSERT INTO public.companies (id, name, type, founded_year, ceo, created_at, updated_at) VALUES (5, 'Netflix', 'Entertainment', 1997, 'Ted Sarandos', '2024-02-16 21:18:32.734105+00', '2024-02-16 21:18:32.734105+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (1, 'IPhone 15', 3, '2024-02-16 21:33:07.904297+00', '2024-02-16 21:33:07.904297+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (2, 'Google Phone 7', 1, '2024-02-16 21:33:29.269813+00', '2024-02-16 21:33:29.269813+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (3, 'Kindle Paperwhite', 4, '2024-02-16 21:33:42.097731+00', '2024-02-16 21:33:42.097731+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (4, 'Amazon Web Services', 4, '2024-02-16 21:34:30.067737+00', '2024-02-16 21:34:30.067737+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (5, 'Model Y', 2, '2024-02-16 21:35:27.168272+00', '2024-02-16 21:35:27.168272+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (6, 'Model S', 2, '2024-02-16 21:35:55.419169+00', '2024-02-16 21:35:55.419169+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (7, 'Squid Game', 5, '2024-02-16 21:36:40.362567+00', '2024-02-16 21:36:40.362567+00');
+INSERT INTO public.products (id, name, manufacturer_id, created_at, updated_at) VALUES (8, 'Google Cloud Platform', 1, '2024-02-16 21:37:15.120984+00', '2024-02-16 21:37:15.120984+00');
+SELECT pg_catalog.setval('public.companies_id_seq', 5, true);
+SELECT pg_catalog.setval('public.products_id_seq', 8, true);
